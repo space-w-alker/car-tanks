@@ -1,0 +1,28 @@
+[gd_scene format=2]
+
+[node name="river_collider" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.3, 0 )
+polygon = PoolVector2Array( -0.499221, 0.138408, -0.375875, 0.136455, -0.111153, 0.201072, 0.0681078, 0.392839, 0.13056, 0.50186, -0.00145322, 0.577528, -0.499686, 0.288181 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.3, 0 )
+polygon = PoolVector2Array( -0.498124, -0.128616, -0.0534441, -0.0841478, 0.0919002, 0.000813169, 0.359253, 0.361913, 0.499669, 0.289251, 0.501169, -0.288083, -0.000163388, -0.577533, -0.499147, -0.288778 )
+
+[node name="StaticBody3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="StaticBody3"]
+transform = Transform( 0.575, 0, 0, 0, -2.5134e-08, -0.575, 0, 0.575, -2.5134e-08, 0, 0.0605654, 0 )
+depth = 0.4
+polygon = PoolVector2Array( -0.866, 0.5, 0, 1, 0.866, 0.5, 0.866, -0.5, 0, -1, -0.866, -0.5 )
+__meta__ = {
+"_editor_description_": ""
+}

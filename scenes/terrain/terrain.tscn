@@ -1,0 +1,2138 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://addons/terrain_generator/scenes/hexagon_block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/hexagon-terrain-blocks/dirt_lumber.tscn" type="PackedScene" id=2]
+[ext_resource path="res://raw-assets/hexagon/grass.material" type="Material" id=3]
+[ext_resource path="res://assets/hexagon-terrain-blocks/sand_rocks.tscn" type="PackedScene" id=4]
+[ext_resource path="res://raw-assets/hexagon/dirt.material" type="Material" id=5]
+[ext_resource path="res://raw-assets/hexagon/stone.material" type="Material" id=6]
+[ext_resource path="res://assets/hexagon-terrain-blocks/stone_rocks.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/hexagon-terrain-blocks/grass.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/hexagon-terrain-blocks/dirt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/terrain/terrain_generator.gd" type="Script" id=10]
+[ext_resource path="res://raw-assets/hexagon/sand.material" type="Material" id=11]
+
+[sub_resource type="ArrayMesh" id=1]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.5, 0, -0.57735, 1.00001, 0.1, 1.1547 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 126, 63, 235, 76, 46, 201, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 0, 129, 127, 63, 0, 0, 110, 205, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 127, 63, 235, 76, 46, 74, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 0, 129, 127, 63, 0, 0, 238, 77, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 127, 63, 235, 204, 46, 201, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 126, 63, 235, 204, 46, 74, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 0, 60, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 0, 60, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 0, 60, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193 ),
+"array_index_data": PoolByteArray( 14, 0, 16, 0, 15, 0, 0, 0, 2, 0, 1, 0, 17, 0, 15, 0, 16, 0, 3, 0, 1, 0, 2, 0, 18, 0, 20, 0, 19, 0, 4, 0, 1, 0, 3, 0, 21, 0, 19, 0, 20, 0, 5, 0, 4, 0, 3, 0, 22, 0, 24, 0, 23, 0, 6, 0, 8, 0, 7, 0, 25, 0, 23, 0, 24, 0, 9, 0, 7, 0, 8, 0, 26, 0, 28, 0, 27, 0, 10, 0, 12, 0, 11, 0, 29, 0, 27, 0, 28, 0, 13, 0, 11, 0, 12, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 48,
+"material": ExtResource( 5 ),
+"name": "dirt",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 30
+}
+surfaces/1 = {
+"aabb": AABB( -0.5, 0.1, -0.57735, 1.00001, 0.10001, 1.1547 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 0, 127, 129, 63, 235, 204, 46, 201, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 0, 127, 129, 63, 235, 204, 46, 74, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 0, 127, 130, 63, 0, 0, 110, 205, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 0, 127, 129, 63, 0, 0, 238, 77, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 0, 127, 130, 63, 235, 76, 46, 201, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 0, 127, 129, 63, 235, 76, 46, 74, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 198, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 198, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 198, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 198, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 198, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 198, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 198, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 198, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 198, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 198, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 198, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 198 ),
+"array_index_data": PoolByteArray( 14, 0, 16, 0, 15, 0, 0, 0, 2, 0, 1, 0, 17, 0, 15, 0, 16, 0, 3, 0, 1, 0, 2, 0, 18, 0, 20, 0, 19, 0, 4, 0, 3, 0, 2, 0, 21, 0, 19, 0, 20, 0, 5, 0, 3, 0, 4, 0, 22, 0, 24, 0, 23, 0, 6, 0, 8, 0, 7, 0, 25, 0, 23, 0, 24, 0, 9, 0, 7, 0, 8, 0, 26, 0, 28, 0, 27, 0, 10, 0, 12, 0, 11, 0, 29, 0, 27, 0, 28, 0, 13, 0, 11, 0, 12, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 48,
+"material": ExtResource( 3 ),
+"name": "grass",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 30
+}
+
+[sub_resource type="ArrayMesh" id=2]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.5, 0, -0.57735, 1.00001, 0.1, 1.1547 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 126, 63, 235, 76, 46, 201, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 0, 129, 127, 63, 0, 0, 110, 205, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 127, 63, 235, 76, 46, 74, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 0, 129, 127, 63, 0, 0, 238, 77, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 127, 63, 235, 204, 46, 201, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 126, 63, 235, 204, 46, 74, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 0, 127, 129, 63, 235, 204, 46, 201, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 0, 127, 129, 63, 235, 204, 46, 74, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 0, 127, 130, 63, 0, 0, 110, 205, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 0, 127, 129, 63, 0, 0, 238, 77, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 0, 127, 130, 63, 235, 76, 46, 201, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 0, 127, 129, 63, 235, 76, 46, 74, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 0, 60, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 0, 60, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 0, 60, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193 ),
+"array_index_data": PoolByteArray( 28, 0, 30, 0, 29, 0, 12, 0, 14, 0, 13, 0, 0, 0, 2, 0, 1, 0, 31, 0, 29, 0, 30, 0, 15, 0, 13, 0, 14, 0, 3, 0, 1, 0, 2, 0, 32, 0, 34, 0, 33, 0, 16, 0, 18, 0, 17, 0, 4, 0, 1, 0, 3, 0, 35, 0, 33, 0, 34, 0, 19, 0, 17, 0, 18, 0, 5, 0, 4, 0, 3, 0, 20, 0, 22, 0, 21, 0, 6, 0, 8, 0, 7, 0, 23, 0, 21, 0, 22, 0, 9, 0, 7, 0, 8, 0, 24, 0, 26, 0, 25, 0, 10, 0, 9, 0, 8, 0, 27, 0, 25, 0, 26, 0, 11, 0, 9, 0, 10, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 60,
+"material": ExtResource( 5 ),
+"name": "dirt",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 36
+}
+
+[sub_resource type="ArrayMesh" id=3]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.5, 0, -0.57735, 1.00001, 0.1, 1.1547 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 126, 63, 235, 76, 46, 201, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 0, 129, 127, 63, 0, 0, 110, 205, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 127, 63, 235, 76, 46, 74, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 0, 129, 127, 63, 0, 0, 238, 77, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 127, 63, 235, 204, 46, 201, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 126, 63, 235, 204, 46, 74, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 0, 60, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 0, 60, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 0, 60, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193 ),
+"array_index_data": PoolByteArray( 14, 0, 16, 0, 15, 0, 0, 0, 2, 0, 1, 0, 17, 0, 15, 0, 16, 0, 3, 0, 1, 0, 2, 0, 18, 0, 20, 0, 19, 0, 4, 0, 1, 0, 3, 0, 21, 0, 19, 0, 20, 0, 5, 0, 4, 0, 3, 0, 22, 0, 24, 0, 23, 0, 6, 0, 8, 0, 7, 0, 25, 0, 23, 0, 24, 0, 9, 0, 7, 0, 8, 0, 26, 0, 28, 0, 27, 0, 10, 0, 12, 0, 11, 0, 29, 0, 27, 0, 28, 0, 13, 0, 11, 0, 12, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 48,
+"material": ExtResource( 5 ),
+"name": "dirt",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 30
+}
+surfaces/1 = {
+"aabb": AABB( -0.5, 0.1, -0.57735, 1.00001, 0.10001, 1.1547 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 0, 127, 129, 63, 235, 204, 46, 201, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 0, 127, 129, 63, 235, 204, 46, 74, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 0, 127, 130, 63, 0, 0, 110, 205, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 0, 127, 129, 63, 0, 0, 238, 77, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 0, 127, 130, 63, 235, 76, 46, 201, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 0, 127, 129, 63, 235, 76, 46, 74, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 198, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 198, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 198, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 198, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 198, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 198, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 198, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 198, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 198, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 198, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 198, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 198 ),
+"array_index_data": PoolByteArray( 14, 0, 16, 0, 15, 0, 0, 0, 2, 0, 1, 0, 17, 0, 15, 0, 16, 0, 3, 0, 1, 0, 2, 0, 18, 0, 20, 0, 19, 0, 4, 0, 3, 0, 2, 0, 21, 0, 19, 0, 20, 0, 5, 0, 3, 0, 4, 0, 22, 0, 24, 0, 23, 0, 6, 0, 8, 0, 7, 0, 25, 0, 23, 0, 24, 0, 9, 0, 7, 0, 8, 0, 26, 0, 28, 0, 27, 0, 10, 0, 12, 0, 11, 0, 29, 0, 27, 0, 28, 0, 13, 0, 11, 0, 12, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 48,
+"material": ExtResource( 11 ),
+"name": "sand",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 30
+}
+
+[sub_resource type="ArrayMesh" id=4]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.5, 0, -0.57735, 1.00001, 0.1, 1.1547 ),
+"array_data": PoolByteArray( 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 126, 63, 235, 76, 46, 201, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 0, 129, 127, 63, 0, 0, 110, 205, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 127, 63, 235, 76, 46, 74, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 0, 129, 127, 63, 0, 0, 238, 77, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 0, 129, 127, 63, 235, 204, 46, 201, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 0, 129, 126, 63, 235, 204, 46, 74, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 0, 60, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 0, 60, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 0, 0, 0, 63, 0, 0, 0, 0, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 0, 60, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 90, 254, 23, 170, 0, 0, 0, 0, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 0, 60, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 0, 60, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 192, 236, 6, 42, 0, 0, 0, 0, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 0, 60, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 0, 0, 0, 191, 0, 0, 0, 0, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 0, 60, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193 ),
+"array_index_data": PoolByteArray( 14, 0, 16, 0, 15, 0, 0, 0, 2, 0, 1, 0, 17, 0, 15, 0, 16, 0, 3, 0, 1, 0, 2, 0, 18, 0, 20, 0, 19, 0, 4, 0, 1, 0, 3, 0, 21, 0, 19, 0, 20, 0, 5, 0, 4, 0, 3, 0, 22, 0, 24, 0, 23, 0, 6, 0, 8, 0, 7, 0, 25, 0, 23, 0, 24, 0, 9, 0, 7, 0, 8, 0, 26, 0, 28, 0, 27, 0, 10, 0, 12, 0, 11, 0, 29, 0, 27, 0, 28, 0, 13, 0, 11, 0, 12, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 48,
+"material": ExtResource( 5 ),
+"name": "dirt",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 30
+}
+surfaces/1 = {
+"aabb": AABB( -0.5, 0.1, -0.57735, 1, 0.10001, 1.1547 ),
+"array_data": PoolByteArray( 105, 62, 66, 62, 205, 204, 76, 62, 208, 245, 80, 62, 0, 127, 130, 63, 119, 199, 8, 199, 127, 217, 34, 62, 205, 204, 76, 62, 229, 173, 95, 62, 0, 127, 130, 63, 66, 198, 153, 199, 191, 254, 61, 62, 205, 204, 76, 62, 177, 137, 200, 62, 0, 127, 129, 63, 78, 199, 53, 203, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 0, 127, 130, 63, 235, 204, 46, 74, 144, 105, 45, 62, 205, 204, 76, 62, 235, 166, 145, 61, 0, 127, 129, 63, 170, 198, 51, 191, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 0, 127, 129, 63, 0, 0, 238, 77, 167, 193, 193, 60, 205, 204, 76, 62, 95, 105, 82, 61, 0, 127, 130, 63, 115, 187, 22, 188, 110, 209, 177, 187, 205, 204, 76, 62, 2, 93, 208, 61, 0, 127, 130, 63, 214, 50, 2, 194, 71, 213, 74, 188, 205, 204, 76, 62, 47, 154, 102, 61, 0, 127, 129, 63, 204, 55, 221, 188, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 0, 127, 129, 63, 235, 76, 46, 74, 159, 30, 80, 190, 205, 204, 76, 62, 53, 68, 249, 60, 0, 127, 129, 63, 0, 72, 85, 178, 110, 207, 150, 190, 205, 204, 76, 62, 248, 30, 65, 62, 0, 127, 129, 63, 204, 73, 108, 198, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 0, 127, 129, 63, 235, 76, 46, 201, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 0, 127, 129, 63, 235, 204, 46, 201, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 0, 127, 130, 63, 0, 0, 110, 205, 197, 154, 3, 188, 205, 204, 76, 62, 98, 1, 247, 62, 0, 127, 130, 63, 15, 53, 127, 204, 163, 55, 25, 190, 205, 204, 76, 62, 248, 24, 208, 62, 0, 127, 129, 63, 228, 69, 128, 203, 144, 117, 226, 189, 205, 204, 76, 62, 55, 185, 198, 62, 0, 127, 130, 63, 90, 68, 35, 203, 39, 38, 129, 190, 205, 204, 76, 62, 204, 199, 159, 62, 0, 127, 129, 63, 247, 72, 164, 201, 42, 164, 97, 190, 205, 204, 76, 62, 20, 127, 131, 62, 0, 127, 129, 63, 86, 72, 142, 200, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 129, 0, 0, 63, 174, 201, 223, 198, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 129, 0, 0, 63, 174, 73, 223, 198, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 193, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 210, 0, 80, 63, 174, 73, 223, 198, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 62, 210, 0, 80, 63, 174, 201, 223, 198, 0, 0, 0, 191, 205, 204, 204, 61, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 193, 0, 0, 0, 191, 205, 204, 76, 62, 57, 205, 147, 190, 129, 80, 176, 63, 174, 73, 223, 198, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 193, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 129, 80, 176, 63, 174, 201, 223, 198, 90, 254, 23, 170, 205, 204, 204, 61, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 193, 90, 254, 23, 170, 205, 204, 76, 62, 57, 205, 19, 191, 127, 80, 129, 86, 174, 73, 223, 198, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 127, 80, 129, 86, 174, 201, 223, 198, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 198, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 198, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 190, 127, 0, 127, 127, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 127, 0, 127, 127, 174, 201, 223, 193, 0, 0, 0, 63, 205, 204, 204, 61, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 193, 0, 0, 0, 63, 205, 204, 76, 62, 57, 205, 147, 62, 46, 0, 127, 86, 174, 73, 223, 198, 192, 236, 6, 42, 205, 204, 204, 61, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 193, 192, 236, 6, 42, 205, 204, 76, 62, 57, 205, 19, 63, 46, 0, 127, 86, 174, 201, 223, 198 ),
+"array_index_data": PoolByteArray( 28, 0, 30, 0, 29, 0, 17, 0, 15, 0, 16, 0, 10, 0, 9, 0, 8, 0, 0, 0, 2, 0, 1, 0, 31, 0, 29, 0, 30, 0, 18, 0, 16, 0, 12, 0, 11, 0, 9, 0, 10, 0, 0, 0, 3, 0, 2, 0, 32, 0, 34, 0, 33, 0, 11, 0, 18, 0, 12, 0, 12, 0, 9, 0, 11, 0, 0, 0, 4, 0, 3, 0, 35, 0, 33, 0, 34, 0, 19, 0, 18, 0, 11, 0, 3, 0, 13, 0, 2, 0, 5, 0, 3, 0, 4, 0, 36, 0, 38, 0, 37, 0, 20, 0, 22, 0, 21, 0, 14, 0, 2, 0, 13, 0, 6, 0, 5, 0, 4, 0, 39, 0, 37, 0, 38, 0, 23, 0, 21, 0, 22, 0, 15, 0, 2, 0, 14, 0, 7, 0, 5, 0, 6, 0, 40, 0, 42, 0, 41, 0, 24, 0, 26, 0, 25, 0, 12, 0, 15, 0, 14, 0, 8, 0, 5, 0, 7, 0, 43, 0, 41, 0, 42, 0, 27, 0, 25, 0, 26, 0, 16, 0, 15, 0, 12, 0, 9, 0, 5, 0, 8, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 96,
+"material": ExtResource( 6 ),
+"name": "stone",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 44
+}
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.5, 0 )
+script = ExtResource( 10 )
+hexes = [ ExtResource( 1 ) ]
+can_generate = false
+activate = true
+
+[node name="hexagon_block" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -8.66667 )
+hexagon_index = 2
+
+[node name="grass2" type="MeshInstance" parent="hexagon_block" instance=ExtResource( 8 )]
+mesh = SubResource( 1 )
+
+[node name="hexagon_block2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block2" instance=ExtResource( 9 )]
+
+[node name="hexagon_block3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8.66667 )
+hexagon_index = 1
+
+[node name="dirt_lumber2" type="MeshInstance" parent="hexagon_block3" instance=ExtResource( 2 )]
+mesh = SubResource( 2 )
+
+[node name="hexagon_block4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block4" instance=ExtResource( 9 )]
+
+[node name="hexagon_block5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block5" instance=ExtResource( 9 )]
+
+[node name="hexagon_block6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block6" instance=ExtResource( 9 )]
+
+[node name="hexagon_block7" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block7" instance=ExtResource( 9 )]
+
+[node name="hexagon_block8" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block8" instance=ExtResource( 9 )]
+
+[node name="hexagon_block9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block9" instance=ExtResource( 9 )]
+
+[node name="hexagon_block10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block10" instance=ExtResource( 9 )]
+
+[node name="hexagon_block11" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block11" instance=ExtResource( 9 )]
+
+[node name="hexagon_block12" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block12" instance=ExtResource( 9 )]
+
+[node name="hexagon_block13" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block13" instance=ExtResource( 9 )]
+
+[node name="hexagon_block14" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block14" instance=ExtResource( 9 )]
+
+[node name="hexagon_block15" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block15" instance=ExtResource( 9 )]
+
+[node name="hexagon_block16" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block16" instance=ExtResource( 9 )]
+
+[node name="hexagon_block17" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block17" instance=ExtResource( 9 )]
+
+[node name="hexagon_block18" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block18" instance=ExtResource( 9 )]
+
+[node name="hexagon_block19" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block19" instance=ExtResource( 9 )]
+
+[node name="hexagon_block20" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -8.66667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block20" instance=ExtResource( 9 )]
+
+[node name="hexagon_block21" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, -7.8 )
+hexagon_index = 4
+
+[node name="sand_rocks2" type="MeshInstance" parent="hexagon_block21" instance=ExtResource( 4 )]
+mesh = SubResource( 3 )
+
+[node name="hexagon_block22" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block22" instance=ExtResource( 9 )]
+
+[node name="hexagon_block23" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block23" instance=ExtResource( 9 )]
+
+[node name="hexagon_block24" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block24" instance=ExtResource( 9 )]
+
+[node name="hexagon_block25" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block25" instance=ExtResource( 9 )]
+
+[node name="hexagon_block26" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block26" instance=ExtResource( 9 )]
+
+[node name="hexagon_block27" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block27" instance=ExtResource( 9 )]
+
+[node name="hexagon_block28" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block28" instance=ExtResource( 9 )]
+
+[node name="hexagon_block29" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block29" instance=ExtResource( 9 )]
+
+[node name="hexagon_block30" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block30" instance=ExtResource( 9 )]
+
+[node name="hexagon_block31" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block31" instance=ExtResource( 9 )]
+
+[node name="hexagon_block32" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block32" instance=ExtResource( 9 )]
+
+[node name="hexagon_block33" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block33" instance=ExtResource( 9 )]
+
+[node name="hexagon_block34" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block34" instance=ExtResource( 9 )]
+
+[node name="hexagon_block35" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block35" instance=ExtResource( 9 )]
+
+[node name="hexagon_block36" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block36" instance=ExtResource( 9 )]
+
+[node name="hexagon_block37" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block37" instance=ExtResource( 9 )]
+
+[node name="hexagon_block38" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block38" instance=ExtResource( 9 )]
+
+[node name="hexagon_block39" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block39" instance=ExtResource( 9 )]
+
+[node name="hexagon_block40" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block40" instance=ExtResource( 9 )]
+
+[node name="hexagon_block41" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6.93333 )
+hexagon_index = 4
+
+[node name="sand_rocks2" type="MeshInstance" parent="hexagon_block41" instance=ExtResource( 4 )]
+mesh = SubResource( 3 )
+
+[node name="hexagon_block42" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -6.93333 )
+hexagon_index = 2
+
+[node name="grass2" type="MeshInstance" parent="hexagon_block42" instance=ExtResource( 8 )]
+mesh = SubResource( 1 )
+
+[node name="hexagon_block43" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6.93333 )
+hexagon_index = 7
+
+[node name="stone_rocks2" type="MeshInstance" parent="hexagon_block43" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+mesh = SubResource( 4 )
+
+[node name="hexagon_block44" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block44" instance=ExtResource( 9 )]
+
+[node name="hexagon_block45" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block45" instance=ExtResource( 9 )]
+
+[node name="hexagon_block46" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block46" instance=ExtResource( 9 )]
+
+[node name="hexagon_block47" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block47" instance=ExtResource( 9 )]
+
+[node name="hexagon_block48" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block48" instance=ExtResource( 9 )]
+
+[node name="hexagon_block49" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block49" instance=ExtResource( 9 )]
+
+[node name="hexagon_block50" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block50" instance=ExtResource( 9 )]
+
+[node name="hexagon_block51" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block51" instance=ExtResource( 9 )]
+
+[node name="hexagon_block52" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block52" instance=ExtResource( 9 )]
+
+[node name="hexagon_block53" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block53" instance=ExtResource( 9 )]
+
+[node name="hexagon_block54" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block54" instance=ExtResource( 9 )]
+
+[node name="hexagon_block55" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block55" instance=ExtResource( 9 )]
+
+[node name="hexagon_block56" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block56" instance=ExtResource( 9 )]
+
+[node name="hexagon_block57" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block57" instance=ExtResource( 9 )]
+
+[node name="hexagon_block58" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block58" instance=ExtResource( 9 )]
+
+[node name="hexagon_block59" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block59" instance=ExtResource( 9 )]
+
+[node name="hexagon_block60" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block60" instance=ExtResource( 9 )]
+
+[node name="hexagon_block61" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block61" instance=ExtResource( 9 )]
+
+[node name="hexagon_block62" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block62" instance=ExtResource( 9 )]
+
+[node name="hexagon_block63" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block63" instance=ExtResource( 9 )]
+
+[node name="hexagon_block64" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block64" instance=ExtResource( 9 )]
+
+[node name="hexagon_block65" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block65" instance=ExtResource( 9 )]
+
+[node name="hexagon_block66" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block66" instance=ExtResource( 9 )]
+
+[node name="hexagon_block67" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block67" instance=ExtResource( 9 )]
+
+[node name="hexagon_block68" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block68" instance=ExtResource( 9 )]
+
+[node name="hexagon_block69" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block69" instance=ExtResource( 9 )]
+
+[node name="hexagon_block70" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block70" instance=ExtResource( 9 )]
+
+[node name="hexagon_block71" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block71" instance=ExtResource( 9 )]
+
+[node name="hexagon_block72" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block72" instance=ExtResource( 9 )]
+
+[node name="hexagon_block73" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block73" instance=ExtResource( 9 )]
+
+[node name="hexagon_block74" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block74" instance=ExtResource( 9 )]
+
+[node name="hexagon_block75" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block75" instance=ExtResource( 9 )]
+
+[node name="hexagon_block76" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block76" instance=ExtResource( 9 )]
+
+[node name="hexagon_block77" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block77" instance=ExtResource( 9 )]
+
+[node name="hexagon_block78" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block78" instance=ExtResource( 9 )]
+
+[node name="hexagon_block79" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block79" instance=ExtResource( 9 )]
+
+[node name="hexagon_block80" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block80" instance=ExtResource( 9 )]
+
+[node name="hexagon_block81" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block81" instance=ExtResource( 9 )]
+
+[node name="hexagon_block82" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block82" instance=ExtResource( 9 )]
+
+[node name="hexagon_block83" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block83" instance=ExtResource( 9 )]
+
+[node name="hexagon_block84" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block84" instance=ExtResource( 9 )]
+
+[node name="hexagon_block85" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block85" instance=ExtResource( 9 )]
+
+[node name="hexagon_block86" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block86" instance=ExtResource( 9 )]
+
+[node name="hexagon_block87" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block87" instance=ExtResource( 9 )]
+
+[node name="hexagon_block88" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block88" instance=ExtResource( 9 )]
+
+[node name="hexagon_block89" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block89" instance=ExtResource( 9 )]
+
+[node name="hexagon_block90" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block90" instance=ExtResource( 9 )]
+
+[node name="hexagon_block91" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block91" instance=ExtResource( 9 )]
+
+[node name="hexagon_block92" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block92" instance=ExtResource( 9 )]
+
+[node name="hexagon_block93" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block93" instance=ExtResource( 9 )]
+
+[node name="hexagon_block94" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block94" instance=ExtResource( 9 )]
+
+[node name="hexagon_block95" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block95" instance=ExtResource( 9 )]
+
+[node name="hexagon_block96" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block96" instance=ExtResource( 9 )]
+
+[node name="hexagon_block97" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block97" instance=ExtResource( 9 )]
+
+[node name="hexagon_block98" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block98" instance=ExtResource( 9 )]
+
+[node name="hexagon_block99" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block99" instance=ExtResource( 9 )]
+
+[node name="hexagon_block100" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block100" instance=ExtResource( 9 )]
+
+[node name="hexagon_block101" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block101" instance=ExtResource( 9 )]
+
+[node name="hexagon_block102" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block102" instance=ExtResource( 9 )]
+
+[node name="hexagon_block103" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block103" instance=ExtResource( 9 )]
+
+[node name="hexagon_block104" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block104" instance=ExtResource( 9 )]
+
+[node name="hexagon_block105" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block105" instance=ExtResource( 9 )]
+
+[node name="hexagon_block106" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block106" instance=ExtResource( 9 )]
+
+[node name="hexagon_block107" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block107" instance=ExtResource( 9 )]
+
+[node name="hexagon_block108" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block108" instance=ExtResource( 9 )]
+
+[node name="hexagon_block109" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block109" instance=ExtResource( 9 )]
+
+[node name="hexagon_block110" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block110" instance=ExtResource( 9 )]
+
+[node name="hexagon_block111" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block111" instance=ExtResource( 9 )]
+
+[node name="hexagon_block112" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block112" instance=ExtResource( 9 )]
+
+[node name="hexagon_block113" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block113" instance=ExtResource( 9 )]
+
+[node name="hexagon_block114" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block114" instance=ExtResource( 9 )]
+
+[node name="hexagon_block115" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block115" instance=ExtResource( 9 )]
+
+[node name="hexagon_block116" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block116" instance=ExtResource( 9 )]
+
+[node name="hexagon_block117" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block117" instance=ExtResource( 9 )]
+
+[node name="hexagon_block118" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block118" instance=ExtResource( 9 )]
+
+[node name="hexagon_block119" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block119" instance=ExtResource( 9 )]
+
+[node name="hexagon_block120" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block120" instance=ExtResource( 9 )]
+
+[node name="hexagon_block121" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block121" instance=ExtResource( 9 )]
+
+[node name="hexagon_block122" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block122" instance=ExtResource( 9 )]
+
+[node name="hexagon_block123" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block123" instance=ExtResource( 9 )]
+
+[node name="hexagon_block124" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block124" instance=ExtResource( 9 )]
+
+[node name="hexagon_block125" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block125" instance=ExtResource( 9 )]
+
+[node name="hexagon_block126" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block126" instance=ExtResource( 9 )]
+
+[node name="hexagon_block127" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block127" instance=ExtResource( 9 )]
+
+[node name="hexagon_block128" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block128" instance=ExtResource( 9 )]
+
+[node name="hexagon_block129" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block129" instance=ExtResource( 9 )]
+
+[node name="hexagon_block130" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block130" instance=ExtResource( 9 )]
+
+[node name="hexagon_block131" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block131" instance=ExtResource( 9 )]
+
+[node name="hexagon_block132" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block132" instance=ExtResource( 9 )]
+
+[node name="hexagon_block133" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block133" instance=ExtResource( 9 )]
+
+[node name="hexagon_block134" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block134" instance=ExtResource( 9 )]
+
+[node name="hexagon_block135" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block135" instance=ExtResource( 9 )]
+
+[node name="hexagon_block136" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block136" instance=ExtResource( 9 )]
+
+[node name="hexagon_block137" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block137" instance=ExtResource( 9 )]
+
+[node name="hexagon_block138" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block138" instance=ExtResource( 9 )]
+
+[node name="hexagon_block139" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block139" instance=ExtResource( 9 )]
+
+[node name="hexagon_block140" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block140" instance=ExtResource( 9 )]
+
+[node name="hexagon_block141" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block141" instance=ExtResource( 9 )]
+
+[node name="hexagon_block142" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block142" instance=ExtResource( 9 )]
+
+[node name="hexagon_block143" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block143" instance=ExtResource( 9 )]
+
+[node name="hexagon_block144" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block144" instance=ExtResource( 9 )]
+
+[node name="hexagon_block145" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block145" instance=ExtResource( 9 )]
+
+[node name="hexagon_block146" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block146" instance=ExtResource( 9 )]
+
+[node name="hexagon_block147" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block147" instance=ExtResource( 9 )]
+
+[node name="hexagon_block148" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block148" instance=ExtResource( 9 )]
+
+[node name="hexagon_block149" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block149" instance=ExtResource( 9 )]
+
+[node name="hexagon_block150" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block150" instance=ExtResource( 9 )]
+
+[node name="hexagon_block151" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block151" instance=ExtResource( 9 )]
+
+[node name="hexagon_block152" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block152" instance=ExtResource( 9 )]
+
+[node name="hexagon_block153" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block153" instance=ExtResource( 9 )]
+
+[node name="hexagon_block154" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block154" instance=ExtResource( 9 )]
+
+[node name="hexagon_block155" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block155" instance=ExtResource( 9 )]
+
+[node name="hexagon_block156" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block156" instance=ExtResource( 9 )]
+
+[node name="hexagon_block157" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block157" instance=ExtResource( 9 )]
+
+[node name="hexagon_block158" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block158" instance=ExtResource( 9 )]
+
+[node name="hexagon_block159" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block159" instance=ExtResource( 9 )]
+
+[node name="hexagon_block160" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block160" instance=ExtResource( 9 )]
+
+[node name="hexagon_block161" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block161" instance=ExtResource( 9 )]
+
+[node name="hexagon_block162" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block162" instance=ExtResource( 9 )]
+
+[node name="hexagon_block163" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block163" instance=ExtResource( 9 )]
+
+[node name="hexagon_block164" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block164" instance=ExtResource( 9 )]
+
+[node name="hexagon_block165" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block165" instance=ExtResource( 9 )]
+
+[node name="hexagon_block166" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block166" instance=ExtResource( 9 )]
+
+[node name="hexagon_block167" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block167" instance=ExtResource( 9 )]
+
+[node name="hexagon_block168" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block168" instance=ExtResource( 9 )]
+
+[node name="hexagon_block169" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block169" instance=ExtResource( 9 )]
+
+[node name="hexagon_block170" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block170" instance=ExtResource( 9 )]
+
+[node name="hexagon_block171" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block171" instance=ExtResource( 9 )]
+
+[node name="hexagon_block172" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block172" instance=ExtResource( 9 )]
+
+[node name="hexagon_block173" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block173" instance=ExtResource( 9 )]
+
+[node name="hexagon_block174" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block174" instance=ExtResource( 9 )]
+
+[node name="hexagon_block175" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block175" instance=ExtResource( 9 )]
+
+[node name="hexagon_block176" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block176" instance=ExtResource( 9 )]
+
+[node name="hexagon_block177" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block177" instance=ExtResource( 9 )]
+
+[node name="hexagon_block178" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block178" instance=ExtResource( 9 )]
+
+[node name="hexagon_block179" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block179" instance=ExtResource( 9 )]
+
+[node name="hexagon_block180" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block180" instance=ExtResource( 9 )]
+
+[node name="hexagon_block181" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block181" instance=ExtResource( 9 )]
+
+[node name="hexagon_block182" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block182" instance=ExtResource( 9 )]
+
+[node name="hexagon_block183" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block183" instance=ExtResource( 9 )]
+
+[node name="hexagon_block184" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block184" instance=ExtResource( 9 )]
+
+[node name="hexagon_block185" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block185" instance=ExtResource( 9 )]
+
+[node name="hexagon_block186" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block186" instance=ExtResource( 9 )]
+
+[node name="hexagon_block187" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block187" instance=ExtResource( 9 )]
+
+[node name="hexagon_block188" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block188" instance=ExtResource( 9 )]
+
+[node name="hexagon_block189" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block189" instance=ExtResource( 9 )]
+
+[node name="hexagon_block190" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block190" instance=ExtResource( 9 )]
+
+[node name="hexagon_block191" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block191" instance=ExtResource( 9 )]
+
+[node name="hexagon_block192" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block192" instance=ExtResource( 9 )]
+
+[node name="hexagon_block193" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block193" instance=ExtResource( 9 )]
+
+[node name="hexagon_block194" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block194" instance=ExtResource( 9 )]
+
+[node name="hexagon_block195" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block195" instance=ExtResource( 9 )]
+
+[node name="hexagon_block196" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block196" instance=ExtResource( 9 )]
+
+[node name="hexagon_block197" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block197" instance=ExtResource( 9 )]
+
+[node name="hexagon_block198" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block198" instance=ExtResource( 9 )]
+
+[node name="hexagon_block199" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block199" instance=ExtResource( 9 )]
+
+[node name="hexagon_block200" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block200" instance=ExtResource( 9 )]
+
+[node name="hexagon_block201" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block201" instance=ExtResource( 9 )]
+
+[node name="hexagon_block202" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block202" instance=ExtResource( 9 )]
+
+[node name="hexagon_block203" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block203" instance=ExtResource( 9 )]
+
+[node name="hexagon_block204" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block204" instance=ExtResource( 9 )]
+
+[node name="hexagon_block205" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block205" instance=ExtResource( 9 )]
+
+[node name="hexagon_block206" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block206" instance=ExtResource( 9 )]
+
+[node name="hexagon_block207" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block207" instance=ExtResource( 9 )]
+
+[node name="hexagon_block208" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block208" instance=ExtResource( 9 )]
+
+[node name="hexagon_block209" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block209" instance=ExtResource( 9 )]
+
+[node name="hexagon_block210" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block210" instance=ExtResource( 9 )]
+
+[node name="hexagon_block211" parent="." instance=ExtResource( 1 )]
+
+[node name="dirt" type="Spatial" parent="hexagon_block211" instance=ExtResource( 9 )]
+
+[node name="hexagon_block212" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block212" instance=ExtResource( 9 )]
+
+[node name="hexagon_block213" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block213" instance=ExtResource( 9 )]
+
+[node name="hexagon_block214" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block214" instance=ExtResource( 9 )]
+
+[node name="hexagon_block215" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block215" instance=ExtResource( 9 )]
+
+[node name="hexagon_block216" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block216" instance=ExtResource( 9 )]
+
+[node name="hexagon_block217" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block217" instance=ExtResource( 9 )]
+
+[node name="hexagon_block218" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block218" instance=ExtResource( 9 )]
+
+[node name="hexagon_block219" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block219" instance=ExtResource( 9 )]
+
+[node name="hexagon_block220" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block220" instance=ExtResource( 9 )]
+
+[node name="hexagon_block221" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block221" instance=ExtResource( 9 )]
+
+[node name="hexagon_block222" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block222" instance=ExtResource( 9 )]
+
+[node name="hexagon_block223" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block223" instance=ExtResource( 9 )]
+
+[node name="hexagon_block224" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block224" instance=ExtResource( 9 )]
+
+[node name="hexagon_block225" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block225" instance=ExtResource( 9 )]
+
+[node name="hexagon_block226" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block226" instance=ExtResource( 9 )]
+
+[node name="hexagon_block227" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block227" instance=ExtResource( 9 )]
+
+[node name="hexagon_block228" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block228" instance=ExtResource( 9 )]
+
+[node name="hexagon_block229" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block229" instance=ExtResource( 9 )]
+
+[node name="hexagon_block230" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block230" instance=ExtResource( 9 )]
+
+[node name="hexagon_block231" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block231" instance=ExtResource( 9 )]
+
+[node name="hexagon_block232" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block232" instance=ExtResource( 9 )]
+
+[node name="hexagon_block233" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block233" instance=ExtResource( 9 )]
+
+[node name="hexagon_block234" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block234" instance=ExtResource( 9 )]
+
+[node name="hexagon_block235" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block235" instance=ExtResource( 9 )]
+
+[node name="hexagon_block236" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block236" instance=ExtResource( 9 )]
+
+[node name="hexagon_block237" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block237" instance=ExtResource( 9 )]
+
+[node name="hexagon_block238" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block238" instance=ExtResource( 9 )]
+
+[node name="hexagon_block239" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block239" instance=ExtResource( 9 )]
+
+[node name="hexagon_block240" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 0.866667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block240" instance=ExtResource( 9 )]
+
+[node name="hexagon_block241" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block241" instance=ExtResource( 9 )]
+
+[node name="hexagon_block242" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block242" instance=ExtResource( 9 )]
+
+[node name="hexagon_block243" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block243" instance=ExtResource( 9 )]
+
+[node name="hexagon_block244" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block244" instance=ExtResource( 9 )]
+
+[node name="hexagon_block245" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block245" instance=ExtResource( 9 )]
+
+[node name="hexagon_block246" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block246" instance=ExtResource( 9 )]
+
+[node name="hexagon_block247" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block247" instance=ExtResource( 9 )]
+
+[node name="hexagon_block248" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block248" instance=ExtResource( 9 )]
+
+[node name="hexagon_block249" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block249" instance=ExtResource( 9 )]
+
+[node name="hexagon_block250" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block250" instance=ExtResource( 9 )]
+
+[node name="hexagon_block251" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block251" instance=ExtResource( 9 )]
+
+[node name="hexagon_block252" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block252" instance=ExtResource( 9 )]
+
+[node name="hexagon_block253" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block253" instance=ExtResource( 9 )]
+
+[node name="hexagon_block254" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block254" instance=ExtResource( 9 )]
+
+[node name="hexagon_block255" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block255" instance=ExtResource( 9 )]
+
+[node name="hexagon_block256" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block256" instance=ExtResource( 9 )]
+
+[node name="hexagon_block257" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block257" instance=ExtResource( 9 )]
+
+[node name="hexagon_block258" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block258" instance=ExtResource( 9 )]
+
+[node name="hexagon_block259" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block259" instance=ExtResource( 9 )]
+
+[node name="hexagon_block260" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.73333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block260" instance=ExtResource( 9 )]
+
+[node name="hexagon_block261" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block261" instance=ExtResource( 9 )]
+
+[node name="hexagon_block262" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block262" instance=ExtResource( 9 )]
+
+[node name="hexagon_block263" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block263" instance=ExtResource( 9 )]
+
+[node name="hexagon_block264" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block264" instance=ExtResource( 9 )]
+
+[node name="hexagon_block265" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block265" instance=ExtResource( 9 )]
+
+[node name="hexagon_block266" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block266" instance=ExtResource( 9 )]
+
+[node name="hexagon_block267" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block267" instance=ExtResource( 9 )]
+
+[node name="hexagon_block268" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block268" instance=ExtResource( 9 )]
+
+[node name="hexagon_block269" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block269" instance=ExtResource( 9 )]
+
+[node name="hexagon_block270" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block270" instance=ExtResource( 9 )]
+
+[node name="hexagon_block271" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block271" instance=ExtResource( 9 )]
+
+[node name="hexagon_block272" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block272" instance=ExtResource( 9 )]
+
+[node name="hexagon_block273" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block273" instance=ExtResource( 9 )]
+
+[node name="hexagon_block274" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block274" instance=ExtResource( 9 )]
+
+[node name="hexagon_block275" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block275" instance=ExtResource( 9 )]
+
+[node name="hexagon_block276" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block276" instance=ExtResource( 9 )]
+
+[node name="hexagon_block277" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block277" instance=ExtResource( 9 )]
+
+[node name="hexagon_block278" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block278" instance=ExtResource( 9 )]
+
+[node name="hexagon_block279" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block279" instance=ExtResource( 9 )]
+
+[node name="hexagon_block280" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 2.6 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block280" instance=ExtResource( 9 )]
+
+[node name="hexagon_block281" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block281" instance=ExtResource( 9 )]
+
+[node name="hexagon_block282" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block282" instance=ExtResource( 9 )]
+
+[node name="hexagon_block283" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block283" instance=ExtResource( 9 )]
+
+[node name="hexagon_block284" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block284" instance=ExtResource( 9 )]
+
+[node name="hexagon_block285" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block285" instance=ExtResource( 9 )]
+
+[node name="hexagon_block286" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block286" instance=ExtResource( 9 )]
+
+[node name="hexagon_block287" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block287" instance=ExtResource( 9 )]
+
+[node name="hexagon_block288" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block288" instance=ExtResource( 9 )]
+
+[node name="hexagon_block289" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block289" instance=ExtResource( 9 )]
+
+[node name="hexagon_block290" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block290" instance=ExtResource( 9 )]
+
+[node name="hexagon_block291" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block291" instance=ExtResource( 9 )]
+
+[node name="hexagon_block292" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block292" instance=ExtResource( 9 )]
+
+[node name="hexagon_block293" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block293" instance=ExtResource( 9 )]
+
+[node name="hexagon_block294" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block294" instance=ExtResource( 9 )]
+
+[node name="hexagon_block295" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block295" instance=ExtResource( 9 )]
+
+[node name="hexagon_block296" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block296" instance=ExtResource( 9 )]
+
+[node name="hexagon_block297" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block297" instance=ExtResource( 9 )]
+
+[node name="hexagon_block298" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block298" instance=ExtResource( 9 )]
+
+[node name="hexagon_block299" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block299" instance=ExtResource( 9 )]
+
+[node name="hexagon_block300" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3.46667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block300" instance=ExtResource( 9 )]
+
+[node name="hexagon_block301" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block301" instance=ExtResource( 9 )]
+
+[node name="hexagon_block302" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block302" instance=ExtResource( 9 )]
+
+[node name="hexagon_block303" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block303" instance=ExtResource( 9 )]
+
+[node name="hexagon_block304" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block304" instance=ExtResource( 9 )]
+
+[node name="hexagon_block305" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block305" instance=ExtResource( 9 )]
+
+[node name="hexagon_block306" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block306" instance=ExtResource( 9 )]
+
+[node name="hexagon_block307" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block307" instance=ExtResource( 9 )]
+
+[node name="hexagon_block308" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block308" instance=ExtResource( 9 )]
+
+[node name="hexagon_block309" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block309" instance=ExtResource( 9 )]
+
+[node name="hexagon_block310" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block310" instance=ExtResource( 9 )]
+
+[node name="hexagon_block311" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block311" instance=ExtResource( 9 )]
+
+[node name="hexagon_block312" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block312" instance=ExtResource( 9 )]
+
+[node name="hexagon_block313" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block313" instance=ExtResource( 9 )]
+
+[node name="hexagon_block314" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block314" instance=ExtResource( 9 )]
+
+[node name="hexagon_block315" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block315" instance=ExtResource( 9 )]
+
+[node name="hexagon_block316" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block316" instance=ExtResource( 9 )]
+
+[node name="hexagon_block317" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block317" instance=ExtResource( 9 )]
+
+[node name="hexagon_block318" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block318" instance=ExtResource( 9 )]
+
+[node name="hexagon_block319" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block319" instance=ExtResource( 9 )]
+
+[node name="hexagon_block320" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 4.33333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block320" instance=ExtResource( 9 )]
+
+[node name="hexagon_block321" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block321" instance=ExtResource( 9 )]
+
+[node name="hexagon_block322" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block322" instance=ExtResource( 9 )]
+
+[node name="hexagon_block323" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block323" instance=ExtResource( 9 )]
+
+[node name="hexagon_block324" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block324" instance=ExtResource( 9 )]
+
+[node name="hexagon_block325" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block325" instance=ExtResource( 9 )]
+
+[node name="hexagon_block326" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block326" instance=ExtResource( 9 )]
+
+[node name="hexagon_block327" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block327" instance=ExtResource( 9 )]
+
+[node name="hexagon_block328" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block328" instance=ExtResource( 9 )]
+
+[node name="hexagon_block329" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block329" instance=ExtResource( 9 )]
+
+[node name="hexagon_block330" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block330" instance=ExtResource( 9 )]
+
+[node name="hexagon_block331" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block331" instance=ExtResource( 9 )]
+
+[node name="hexagon_block332" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block332" instance=ExtResource( 9 )]
+
+[node name="hexagon_block333" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block333" instance=ExtResource( 9 )]
+
+[node name="hexagon_block334" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block334" instance=ExtResource( 9 )]
+
+[node name="hexagon_block335" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block335" instance=ExtResource( 9 )]
+
+[node name="hexagon_block336" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block336" instance=ExtResource( 9 )]
+
+[node name="hexagon_block337" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block337" instance=ExtResource( 9 )]
+
+[node name="hexagon_block338" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block338" instance=ExtResource( 9 )]
+
+[node name="hexagon_block339" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block339" instance=ExtResource( 9 )]
+
+[node name="hexagon_block340" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5.2 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block340" instance=ExtResource( 9 )]
+
+[node name="hexagon_block341" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block341" instance=ExtResource( 9 )]
+
+[node name="hexagon_block342" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block342" instance=ExtResource( 9 )]
+
+[node name="hexagon_block343" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block343" instance=ExtResource( 9 )]
+
+[node name="hexagon_block344" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block344" instance=ExtResource( 9 )]
+
+[node name="hexagon_block345" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block345" instance=ExtResource( 9 )]
+
+[node name="hexagon_block346" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block346" instance=ExtResource( 9 )]
+
+[node name="hexagon_block347" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block347" instance=ExtResource( 9 )]
+
+[node name="hexagon_block348" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block348" instance=ExtResource( 9 )]
+
+[node name="hexagon_block349" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block349" instance=ExtResource( 9 )]
+
+[node name="hexagon_block350" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block350" instance=ExtResource( 9 )]
+
+[node name="hexagon_block351" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block351" instance=ExtResource( 9 )]
+
+[node name="hexagon_block352" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block352" instance=ExtResource( 9 )]
+
+[node name="hexagon_block353" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block353" instance=ExtResource( 9 )]
+
+[node name="hexagon_block354" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block354" instance=ExtResource( 9 )]
+
+[node name="hexagon_block355" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block355" instance=ExtResource( 9 )]
+
+[node name="hexagon_block356" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block356" instance=ExtResource( 9 )]
+
+[node name="hexagon_block357" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block357" instance=ExtResource( 9 )]
+
+[node name="hexagon_block358" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block358" instance=ExtResource( 9 )]
+
+[node name="hexagon_block359" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block359" instance=ExtResource( 9 )]
+
+[node name="hexagon_block360" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 6.06667 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block360" instance=ExtResource( 9 )]
+
+[node name="hexagon_block361" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block361" instance=ExtResource( 9 )]
+
+[node name="hexagon_block362" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block362" instance=ExtResource( 9 )]
+
+[node name="hexagon_block363" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block363" instance=ExtResource( 9 )]
+
+[node name="hexagon_block364" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block364" instance=ExtResource( 9 )]
+
+[node name="hexagon_block365" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block365" instance=ExtResource( 9 )]
+
+[node name="hexagon_block366" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block366" instance=ExtResource( 9 )]
+
+[node name="hexagon_block367" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block367" instance=ExtResource( 9 )]
+
+[node name="hexagon_block368" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block368" instance=ExtResource( 9 )]
+
+[node name="hexagon_block369" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block369" instance=ExtResource( 9 )]
+
+[node name="hexagon_block370" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block370" instance=ExtResource( 9 )]
+
+[node name="hexagon_block371" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block371" instance=ExtResource( 9 )]
+
+[node name="hexagon_block372" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block372" instance=ExtResource( 9 )]
+
+[node name="hexagon_block373" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block373" instance=ExtResource( 9 )]
+
+[node name="hexagon_block374" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block374" instance=ExtResource( 9 )]
+
+[node name="hexagon_block375" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block375" instance=ExtResource( 9 )]
+
+[node name="hexagon_block376" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block376" instance=ExtResource( 9 )]
+
+[node name="hexagon_block377" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block377" instance=ExtResource( 9 )]
+
+[node name="hexagon_block378" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block378" instance=ExtResource( 9 )]
+
+[node name="hexagon_block379" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block379" instance=ExtResource( 9 )]
+
+[node name="hexagon_block380" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 6.93333 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block380" instance=ExtResource( 9 )]
+
+[node name="hexagon_block381" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block381" instance=ExtResource( 9 )]
+
+[node name="hexagon_block382" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block382" instance=ExtResource( 9 )]
+
+[node name="hexagon_block383" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block383" instance=ExtResource( 9 )]
+
+[node name="hexagon_block384" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block384" instance=ExtResource( 9 )]
+
+[node name="hexagon_block385" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block385" instance=ExtResource( 9 )]
+
+[node name="hexagon_block386" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block386" instance=ExtResource( 9 )]
+
+[node name="hexagon_block387" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block387" instance=ExtResource( 9 )]
+
+[node name="hexagon_block388" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block388" instance=ExtResource( 9 )]
+
+[node name="hexagon_block389" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block389" instance=ExtResource( 9 )]
+
+[node name="hexagon_block390" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block390" instance=ExtResource( 9 )]
+
+[node name="hexagon_block391" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block391" instance=ExtResource( 9 )]
+
+[node name="hexagon_block392" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block392" instance=ExtResource( 9 )]
+
+[node name="hexagon_block393" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block393" instance=ExtResource( 9 )]
+
+[node name="hexagon_block394" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block394" instance=ExtResource( 9 )]
+
+[node name="hexagon_block395" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block395" instance=ExtResource( 9 )]
+
+[node name="hexagon_block396" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block396" instance=ExtResource( 9 )]
+
+[node name="hexagon_block397" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block397" instance=ExtResource( 9 )]
+
+[node name="hexagon_block398" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block398" instance=ExtResource( 9 )]
+
+[node name="hexagon_block399" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block399" instance=ExtResource( 9 )]
+
+[node name="hexagon_block400" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 7.8 )
+
+[node name="dirt" type="Spatial" parent="hexagon_block400" instance=ExtResource( 9 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, 10.0715, 0 )

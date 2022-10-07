@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="hex_static_floor" type="StaticBody"]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="."]
+transform = Transform( 0.575, 0, 0, 0, -2.5134e-08, -0.575, 0, 0.575, -2.5134e-08, 0, -0.0158736, 0 )
+depth = 0.4
+polygon = PoolVector2Array( -0.866, 0.5, 0, 1, 0.866, 0.5, 0.866, -0.5, 0, -1, -0.866, -0.5 )

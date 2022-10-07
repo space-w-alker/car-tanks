@@ -1,0 +1,565 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/terrain_generator/scenes/hexagon_block.tscn" type="PackedScene" id=8]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="hexagon_block" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5.2 )
+hexagon_index = -5
+
+[node name="hexagon_block2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5.2 )
+hexagon_index = 48
+
+[node name="hexagon_block3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5.2 )
+hexagon_index = 48
+
+[node name="hexagon_block4" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -3, 0, -5.2 )
+hexagon_index = 35
+
+[node name="hexagon_block5" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -2, 0, -5.2 )
+hexagon_index = 38
+
+[node name="hexagon_block6" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5.2 )
+hexagon_index = -3
+
+[node name="hexagon_block7" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.2 )
+hexagon_index = -3
+
+[node name="hexagon_block8" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5.2 )
+hexagon_index = -3
+
+[node name="hexagon_block9" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5.2 )
+hexagon_index = -3
+
+[node name="hexagon_block10" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5.2 )
+hexagon_index = -3
+
+[node name="hexagon_block11" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5.2 )
+hexagon_index = -3
+
+[node name="hexagon_block12" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5.2 )
+hexagon_index = 45
+
+[node name="hexagon_block13" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -4.33333 )
+hexagon_index = 48
+
+[node name="hexagon_block14" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4.33333 )
+hexagon_index = 47
+
+[node name="hexagon_block15" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -4.33333 )
+
+[node name="hexagon_block16" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.33333 )
+
+[node name="hexagon_block17" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -1.5, 0, -4.33333 )
+hexagon_index = 44
+
+[node name="hexagon_block18" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -4.33333 )
+hexagon_index = -3
+
+[node name="hexagon_block19" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -4.33333 )
+hexagon_index = -3
+
+[node name="hexagon_block20" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -4.33333 )
+hexagon_index = -3
+
+[node name="hexagon_block21" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.33333 )
+hexagon_index = -3
+
+[node name="hexagon_block22" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -4.33333 )
+hexagon_index = 45
+
+[node name="hexagon_block23" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.33333 )
+hexagon_index = 45
+
+[node name="hexagon_block24" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -4.33333 )
+hexagon_index = 45
+
+[node name="hexagon_block25" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3.46667 )
+hexagon_index = 48
+
+[node name="hexagon_block26" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3.46667 )
+
+[node name="hexagon_block27" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.46667 )
+
+[node name="hexagon_block28" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.46667 )
+
+[node name="hexagon_block29" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3.46667 )
+
+[node name="hexagon_block30" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -1, 0, -3.46667 )
+hexagon_index = 44
+
+[node name="hexagon_block31" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.46667 )
+hexagon_index = 14
+
+[node name="hexagon_block32" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3.46667 )
+
+[node name="hexagon_block33" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.46667 )
+hexagon_index = 11
+
+[node name="hexagon_block34" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.46667 )
+hexagon_index = 45
+
+[node name="hexagon_block35" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3.46667 )
+hexagon_index = 45
+
+[node name="hexagon_block36" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3.46667 )
+hexagon_index = 45
+
+[node name="hexagon_block37" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -2.6 )
+
+[node name="hexagon_block38" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -2.6 )
+
+[node name="hexagon_block39" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -2.6 )
+
+[node name="hexagon_block40" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.6 )
+hexagon_index = 16
+
+[node name="hexagon_block41" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.6 )
+hexagon_index = 16
+
+[node name="hexagon_block42" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -0.5, 0, -2.6 )
+hexagon_index = 12
+
+[node name="hexagon_block43" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.6 )
+hexagon_index = 3
+
+[node name="hexagon_block44" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 1.5, 0, -2.6 )
+hexagon_index = 7
+
+[node name="hexagon_block45" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.6 )
+
+[node name="hexagon_block46" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -2.6 )
+hexagon_index = 6
+
+[node name="hexagon_block47" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -2.6 )
+hexagon_index = 49
+
+[node name="hexagon_block48" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -2.6 )
+hexagon_index = 45
+
+[node name="hexagon_block49" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.73333 )
+
+[node name="hexagon_block50" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.73333 )
+hexagon_index = 8
+
+[node name="hexagon_block51" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.73333 )
+hexagon_index = 53
+
+[node name="hexagon_block52" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.73333 )
+hexagon_index = 16
+
+[node name="hexagon_block53" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.73333 )
+hexagon_index = 54
+
+[node name="hexagon_block54" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.73333 )
+hexagon_index = -5
+
+[node name="hexagon_block55" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, -1.73333 )
+hexagon_index = 31
+
+[node name="hexagon_block56" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.73333 )
+hexagon_index = 59
+
+[node name="hexagon_block57" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.73333 )
+hexagon_index = 52
+
+[node name="hexagon_block58" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, -1.73333 )
+hexagon_index = 5
+
+[node name="hexagon_block59" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1.73333 )
+hexagon_index = 10
+
+[node name="hexagon_block60" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1.73333 )
+hexagon_index = 53
+
+[node name="hexagon_block61" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -0.866667 )
+
+[node name="hexagon_block62" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -0.866667 )
+hexagon_index = 14
+
+[node name="hexagon_block63" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -0.866667 )
+hexagon_index = 16
+
+[node name="hexagon_block64" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.866667 )
+hexagon_index = 16
+
+[node name="hexagon_block65" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.866667 )
+hexagon_index = -6
+
+[node name="hexagon_block66" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -0.5, 0, -0.866667 )
+hexagon_index = 12
+
+[node name="hexagon_block67" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.866667 )
+hexagon_index = 13
+
+[node name="hexagon_block68" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 1.5, 0, -0.866667 )
+hexagon_index = 55
+
+[node name="hexagon_block69" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.866667 )
+hexagon_index = -54
+
+[node name="hexagon_block70" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.866667 )
+
+[node name="hexagon_block71" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -0.866667 )
+
+[node name="hexagon_block72" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -0.866667 )
+
+[node name="hexagon_block73" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+hexagon_index = 16
+
+[node name="hexagon_block74" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
+hexagon_index = 14
+
+[node name="hexagon_block75" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+hexagon_index = 13
+
+[node name="hexagon_block76" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+hexagon_index = 16
+
+[node name="hexagon_block77" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, 0 )
+hexagon_index = 31
+
+[node name="hexagon_block78" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -1, 0, 0 )
+hexagon_index = 40
+
+[node name="hexagon_block79" parent="." instance=ExtResource( 8 )]
+hexagon_index = 13
+
+[node name="hexagon_block80" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+hexagon_index = -3
+
+[node name="hexagon_block81" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+hexagon_index = -3
+
+[node name="hexagon_block82" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+hexagon_index = -3
+
+[node name="hexagon_block83" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+hexagon_index = 16
+
+[node name="hexagon_block84" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+hexagon_index = 16
+
+[node name="hexagon_block85" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 0.866667 )
+hexagon_index = 13
+
+[node name="hexagon_block86" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0.866667 )
+hexagon_index = 14
+
+[node name="hexagon_block87" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0.866667 )
+hexagon_index = 13
+
+[node name="hexagon_block88" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.5, 0, 0.866667 )
+hexagon_index = 44
+
+[node name="hexagon_block89" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.866667 )
+hexagon_index = 0
+
+[node name="hexagon_block90" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -0.5, 0, 0.866667 )
+hexagon_index = 44
+
+[node name="hexagon_block91" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.866667 )
+hexagon_index = 14
+
+[node name="hexagon_block92" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.866667 )
+hexagon_index = -3
+
+[node name="hexagon_block93" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.866667 )
+hexagon_index = -2
+
+[node name="hexagon_block94" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.866667 )
+hexagon_index = 16
+
+[node name="hexagon_block95" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0.866667 )
+hexagon_index = 16
+
+[node name="hexagon_block96" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 0.866667 )
+hexagon_index = 16
+
+[node name="hexagon_block97" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.73333 )
+hexagon_index = 13
+
+[node name="hexagon_block98" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.73333 )
+hexagon_index = 13
+
+[node name="hexagon_block99" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1.73333 )
+hexagon_index = 11
+
+[node name="hexagon_block100" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -3, 0, 1.73333 )
+hexagon_index = 44
+
+[node name="hexagon_block101" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1.73333 )
+hexagon_index = 16
+
+[node name="hexagon_block102" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.73333 )
+hexagon_index = 16
+
+[node name="hexagon_block103" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 1.73333 )
+hexagon_index = 44
+
+[node name="hexagon_block104" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 1, 0, 1.73333 )
+has_path = true
+path_index = 30
+
+[node name="hexagon_block105" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.73333 )
+
+[node name="hexagon_block106" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.73333 )
+
+[node name="hexagon_block107" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1.73333 )
+
+[node name="hexagon_block108" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.73333 )
+hexagon_index = 16
+
+[node name="hexagon_block109" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 2.6 )
+hexagon_index = 14
+
+[node name="hexagon_block110" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 2.6 )
+hexagon_index = 13
+
+[node name="hexagon_block111" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -3.5, 0, 2.6 )
+hexagon_index = 44
+
+[node name="hexagon_block112" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.6 )
+hexagon_index = 10
+
+[node name="hexagon_block113" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.6 )
+hexagon_index = 9
+
+[node name="hexagon_block114" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.6 )
+hexagon_index = 47
+
+[node name="hexagon_block115" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0.5, 0, 2.6 )
+hexagon_index = 31
+
+[node name="hexagon_block116" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 1.5, 0, 2.6 )
+has_path = true
+
+[node name="hexagon_block117" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 0, 2.6 )
+has_path = true
+path_index = 22
+
+[node name="hexagon_block118" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 2.6 )
+has_path = true
+path_index = 30
+
+[node name="hexagon_block119" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 2.6 )
+has_path = true
+path_index = 30
+
+[node name="hexagon_block120" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2.6 )
+has_path = true
+path_index = 30
+
+[node name="hexagon_block121" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3.46667 )
+
+[node name="hexagon_block122" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.46667 )
+
+[node name="hexagon_block123" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -4, 0, 3.46667 )
+hexagon_index = 12
+
+[node name="hexagon_block124" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -3, 0, 3.46667 )
+hexagon_index = 0
+
+[node name="hexagon_block125" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3.46667 )
+hexagon_index = 8
+
+[node name="hexagon_block126" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3.46667 )
+hexagon_index = 13
+
+[node name="hexagon_block127" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 3.46667 )
+hexagon_index = 44
+
+[node name="hexagon_block128" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.46667 )
+
+[node name="hexagon_block129" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2, 0, 3.46667 )
+has_path = true
+path_index = 30
+
+[node name="hexagon_block130" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3.46667 )
+hexagon_index = 16
+
+[node name="hexagon_block131" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3.46667 )
+hexagon_index = 16
+
+[node name="hexagon_block132" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3.46667 )
+hexagon_index = 16
+
+[node name="hexagon_block133" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.5, 0, 4.33333 )
+hexagon_index = 36
+
+[node name="hexagon_block134" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -4.5, 0, 4.33333 )
+hexagon_index = 37
+
+[node name="hexagon_block135" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 4.33333 )
+hexagon_index = 50
+
+[node name="hexagon_block136" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 4.33333 )
+hexagon_index = 50
+
+[node name="hexagon_block137" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 4.33333 )
+hexagon_index = 50
+
+[node name="hexagon_block138" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -0.5, 0, 4.33333 )
+hexagon_index = 50
+
+[node name="hexagon_block139" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 4.33333 )
+
+[node name="hexagon_block140" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 1.5, 0, 4.33333 )
+has_path = true
+hexagon_index = 14
+path_index = 30
+
+[node name="hexagon_block141" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 4.33333 )
+hexagon_index = 16
+
+[node name="hexagon_block142" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 4.33333 )
+hexagon_index = 16
+
+[node name="hexagon_block143" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 4.33333 )
+hexagon_index = 16
+
+[node name="hexagon_block144" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4.33333 )
+hexagon_index = 16

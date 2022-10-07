@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/terrain_generator/scripts/dock_controller.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -512.0
+margin_bottom = -88.0
+script = ExtResource( 1 )
+generate_button = NodePath("VBoxContainer/generate_button")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 24.0
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 437.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+prefix = "Count:"
+
+[node name="visible_toggle" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 441.0
+margin_right = 512.0
+margin_bottom = 24.0
+text = "Visible"
+
+[node name="generate_button" type="Button" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 512.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+text = "Generate"
+
+[node name="clear_all" type="Button" parent="VBoxContainer"]
+margin_top = 52.0
+margin_right = 512.0
+margin_bottom = 72.0
+text = "Clear All"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 76.0
+margin_right = 512.0
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 512.0
+margin_bottom = 98.0
+text = "Generated Options"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 102.0
+margin_right = 512.0
+margin_bottom = 106.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 110.0
+margin_right = 512.0
+margin_bottom = 134.0
+alignment = 1
+
+[node name="x_select" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+margin_right = 223.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+prefix = "X:"
+
+[node name="y_select" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 227.0
+margin_right = 450.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+prefix = "Y"
+
+[node name="hold" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 454.0
+margin_right = 512.0
+margin_bottom = 24.0
+text = "Hold"
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/SpinBox" to="." method="_on_SpinBox_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/visible_toggle" to="." method="_on_visible_toggle_toggled"]
+[connection signal="pressed" from="VBoxContainer/generate_button" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/clear_all" to="." method="_on_clear_all_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/x_select" to="." method="_on_x_select_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/y_select" to="." method="_on_y_select_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/hold" to="." method="_on_hold_toggled"]
